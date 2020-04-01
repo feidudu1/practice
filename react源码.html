@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>爬取极客时间内容</title>
+</head>
+<body>
+  <script>
+    var content = []
+    var nodes = document.getElementsByClassName('markdown-section')[0].childNodes
+    nodes.forEach(t => {
+      if (t.nodeName === 'H1') {
+        content.push(t.innerText)
+      } else if (t.nodeName === 'H3') {
+        content.push('')
+        content.push('#' + t.innerText)
+        content.push('---')
+      } else if (t.nodeName === 'PRE') {
+        if (t.children[0].nodeName === 'CODE') {
+          content.push('```')
+          content.push(t.children[0].innerText)
+          content.push('```')
+        }
+      } else if (t.nodeName === 'BLOCKQUOTE') {
+        content.push('')
+        content.push('>' + t.innerText)
+        content.push('')
+      } else {
+        content.push(t.innerText)
+      }
+    })
+    console.log(content.join('\n'));
+    
+
+  </script>
+</body>
+</html>

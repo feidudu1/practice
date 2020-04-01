@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+  
+</body>
+<script>
+
+// <defs>
+//   <clipPath id="clipPath">
+//     <circle cx="60" cy="60" r="50" fill="#34538b" />
+//   </clipPath>
+// </defs>
+
+// <!-- <g> -->
+// <g style="clip-path: url(#clipPath);">
+//   <text x="60" y="60" style="font-size: 20px;" transform="translate(-50, 0)">一步之遥</text>
+//   <text x="200" y="60" style="font-size: 20px;" transform="translate(-50, 0)">一步之遥</text>
+//   <!-- <circle cx="60" cy="60" r="50" fill="#34538b" /> -->
+//   <!-- <rect x="60" y="60" width="200" fill="#cd0000"/> -->
+// </g>
+
+const width = 2000
+const height = 200
+const rectWidth = 200
+const rectHeight = 100
+const svg = d3.select('body')
+  .append('svg')
+  .attr({
+    stroke: 'red',
+    width,
+    height,
+    'stroke-width': 2
+  })
+
+const group = svg
+  .append('g')
+  .attr({
+    // 'clip-path': 'url(#clip)'
+  })
+const defs = svg.append('defs')
+      .append('clipPath')
+      .attr({
+        id: 'clip'
+      })
+      .append('rect')
+      .attr({
+        x: (width - rectWidth) / 2,
+        y: (height - rectHeight) / 2,
+        width: rectWidth,
+        height: rectHeight
+      })
+const text1 = group.append('text')
+  .attr({
+    dx: (width - rectWidth) / 2,
+    dy: height / 2,
+    'font-size': 30,
+    fill: 'red'
+  })
+  .text('你好呀最近怎么样')
+const text2 = group.append('text')
+  .attr({
+    dx: (width - rectWidth) / 2 + 300,
+    dy: height / 2,
+    'font-size': 30,
+    fill: 'red'
+  })
+  .text('你好呀最近怎么样')
+  const x = 800
+  const y = 30
+svg.append('path')
+  .attr({
+    stroke: 'red',
+    // d: "M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z",
+    // d: 'M800,30L1600,30Q1700,100L1600,200L800,200Z',
+    d:`M${x},${y}L${x + 800},${y}L${x + 800},${y + 170}L${x},${y + 170}Z`,
+    fill: 'none'
+  })
+text1.append('animateMotion')
+  .attr({
+  attributeName: 'transform',
+  path: 'M30,30L600,30L600,100L30,100Z',
+  // path: "M 250,80 H 50 Q 30,80 30,50 Q 30,20 50,20 H 250 Q 280,20,280,50 Q 280,80,250,80Z",
+  dur: `5s`,
+  rotate: 'auto',
+  repeatCount: 'indefinite',
+  });
+
+
+// text1
+//   .transition()
+//   .duration(10000)
+//   .ease('linear')
+//   .attr({
+//     dx: 0
+//   })
+
+// text1.attr({
+//   dx: (width - rectWidth) / 2 + 300
+// })
+
+// text2.transition()
+//   .delay(3800)
+//   .duration(10000)
+//   .ease('linear')
+//   .attr({
+//     dx: 0
+//   })
+  
+text2.attr({
+  dx: (width - rectWidth) / 2 + 300
+})
+
+
+
+
+
+
+</script>
+</html>
