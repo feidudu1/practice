@@ -1,5 +1,5 @@
 
-  var getjikeshijian = function () {
+function getjikeshijian () {
     var content = []
     var contentNode = document.getElementsByClassName('_2c4hPkl9')[0].firstChild.childNodes
     contentNode.forEach(t => {
