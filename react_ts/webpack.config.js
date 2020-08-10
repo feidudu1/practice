@@ -15,8 +15,8 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.ts[x]?$/, loader: "awesome-typescript-loader" },
-      { enforce: "pre", test: /\.ts[x]$/, loader: "source-map-loader" },
+      { test: /\.[tj]s[x]?$/, loader: "awesome-typescript-loader" },
+      { enforce: "pre", test: /\.[tj]s[x]$/, loader: "source-map-loader" },
       {
         test: /\.less$/,
         include: ROOT + "/src",
@@ -26,6 +26,11 @@ module.exports = {
           },
           {
             loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[path]_[local]_[hash:base64:5]",
+              },
+            },
           },
           {
             loader: "less-loader",
