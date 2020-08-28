@@ -10,10 +10,13 @@ export default class Nav extends PureComponent<any, any> {
     return (
       <ol>
         <li>
-          <Link to="/pratice">Practice 用于临时性检验</Link>
+          <Link to="/practice">practice 用于临时性检验</Link>
         </li>
         <li>
           <Link to="/demo1">demo1</Link>
+        </li>
+        <li>
+          <Link to="/forwardRef">【react】React.forwardRef</Link>
         </li>
       </ol>
     );

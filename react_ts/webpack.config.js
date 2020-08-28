@@ -10,12 +10,17 @@ module.exports = {
   devtool: "source-map",
   output: {
     path: ROOT + "/dist",
+    publicPath: "/", // 用react router时修复报错‘<’格式错误
     filename: "[name].bundle.js",
     sourceMapFilename: "[name].bundle.map.js",
   },
   module: {
     rules: [
-      { test: /\.[tj]s[x]?$/, loader: "awesome-typescript-loader" },
+      {
+        test: /\.[tj]s[x]?$/,
+        loader: "awesome-typescript-loader",
+        exclude: /node_modules/, // 一定要有，不然loader会对node_modules中的文件进行检测
+      },
       { enforce: "pre", test: /\.[tj]s[x]$/, loader: "source-map-loader" },
       {
         test: /\.less$/,
@@ -27,15 +32,24 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
+              sourceMap: false,
+              importLoaders: 2,
               modules: {
+                auto: /!\.ant\.\w+$/i, // 对不含有.ant.less的文件进行module化，防止antd的样式被module
                 localIdentName: "[path]_[local]_[hash:base64:5]",
               },
             },
           },
           {
             loader: "less-loader",
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
           },
         ],
+        sideEffects: true,
       },
       {
         test: /\.png/,
@@ -47,6 +61,7 @@ module.exports = {
             },
           },
         ],
+        sideEffects: true,
       },
     ],
   },
@@ -59,6 +74,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
+      inject: true,
     }),
     new CheckerPlugin(),
   ],
