@@ -4,6 +4,9 @@ import Nav from "@/Main/Nav";
 import Practice from "@/pages/Practice";
 import Demo1 from "@/pages/Demo1";
 import ForwardRef from "@/pages/ForwardRef";
+import Hoc from "@/pages/Hoc";
+import RenderProps from "@/pages/RenderProps";
+import Context from "@/pages/Context";
 import styles from "./index.less";
 
 export default class Home extends PureComponent<any, any> {
@@ -12,14 +15,17 @@ export default class Home extends PureComponent<any, any> {
   render() {
     return (
       <BrowserRouter>
-        <Link to="/home" className={styles.home}>
-          Home
-        </Link>
+        <div className={styles.home}>
+          <Link to="/home">Home</Link>
+        </div>
         <Switch>
           <Route path="/home" component={Nav} />
           <Route path="/pratice" component={Practice} />
           <Route path="/demo1" component={Demo1} />
           <Route path="/forwardRef" component={ForwardRef} />
+          <Route path="/hoc" component={Hoc} />
+          <Route path="/renderprops" component={RenderProps} />
+          <Route path="/context" component={Context} />
           <Route path="/" component={Nav} />
         </Switch>
       </BrowserRouter>

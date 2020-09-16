@@ -18,6 +18,19 @@ export default class Nav extends PureComponent<any, any> {
         <li>
           <Link to="/forwardRef">【react】React.forwardRef</Link>
         </li>
+        <li>
+          <Link to="/hoc">HOC</Link>
+        </li>
+        <li>
+          <Link to="/hoc">
+            【ts】Render Props: React 的 props(包括 children)并没有限定类型,
+            它可以是一个函数. 于是就有了 render props,
+            这是和高阶组件一样常见的模式
+          </Link>
+        </li>
+        <li>
+          <Link to="/context">【ts】context</Link>
+        </li>
       </ol>
     );
   }
