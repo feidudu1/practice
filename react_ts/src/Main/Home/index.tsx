@@ -7,6 +7,7 @@ import ForwardRef from "@/pages/ForwardRef";
 import Hoc from "@/pages/Hoc";
 import RenderProps from "@/pages/RenderProps";
 import Context from "@/pages/Context";
+import Design from "@/pages/Design";
 import styles from "./index.less";
 
 export default class Home extends PureComponent<any, any> {
@@ -20,6 +21,7 @@ export default class Home extends PureComponent<any, any> {
         </div>
         <Switch>
           <Route path="/home" component={Nav} />
+          <Route path="/design" component={Design} />
           <Route path="/pratice" component={Practice} />
           <Route path="/demo1" component={Demo1} />
           <Route path="/forwardRef" component={ForwardRef} />

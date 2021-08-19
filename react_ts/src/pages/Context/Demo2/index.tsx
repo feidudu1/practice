@@ -10,7 +10,7 @@ export function fixClass<
       className: `${cls} ${props.className}`,
     });
   };
-
+  console.log(FixedClassName);
   return FixedClassName;
 }
 
