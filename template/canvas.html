@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>canvas</title>
 </head>
+
 <body>
+  <script src="./canvas.js"></script>
 
-  <script>
-    var canvas = document.createElement( 'canvas' );
-    const x = 50
-    canvas.width = 16 * x;
-    canvas.height = 16 * x;
-
-    var context = canvas.getContext( '2d' );
-    var gradient = context.createRadialGradient( canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height
-    / 2, canvas.width / 2 );
-    gradient.addColorStop( 0, 'rgba(255,255,255,1)' );
-    gradient.addColorStop( 0.2, 'rgba(0,255,255,1)' );
-    gradient.addColorStop( 0.4, 'rgba(46,139,87,0.5)' );
-    gradient.addColorStop( 1, 'rgba(0,0,0,1)' );
-
-    context.fillStyle = gradient;
-    context.fillRect( 0, 0, canvas.width, canvas.height );
-    document.body.append(canvas)
-  </script>
-  
 </body>
+
 </html>
