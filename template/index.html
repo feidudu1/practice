@@ -5,9 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .a {
+            /* display: none; */
+            visibility: hidden;
+            display: absolute;
+        }
+        .b {
+            /* display: absolute; */
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
 </head>
 <body>
-    <script src="./index.js"></script>
+    <div id="say">
+        <svg 
+xmlns="http://www.w3.org/2000/svg" 
+id="hehe"
+>
+<circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+</svg> 
+    <!-- <div class="a">1111</div> -->
+    <svg xmlns="http://www.w3.org/2000/svg" data-role="simarts.eda-schematic.window" width="870.3125" height="848" cursor="default" tabindex="-1"  style="outline: none;">
+        <defs class="css-0">
+          <linearGradient id="subsystem" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgb(251, 252, 255)"/>
+            <stop offset="100%" stop-color="rgb(222, 230, 252)"/>
+          </linearGradient>
+        </defs>
+        
+        <svg id="targetSvg" data-role="block" data-pos="-1,1" x="-106.5" y="-216" viewBox="0 0 32 32" width="640" height="640" overflow="visible" style="z-index: unset;">
+          <g data-role="edge" data-id="zUHBKMO4gaw3PdTUKxG8G" data-type="_ELECTRIC" data-start-joind-it="SmZIHItfFWSNtxcoKoRE6" data-end-joind-it="UIwpUzhMrSUOe4FPjfinA">
+          <path d="M 18 27 L 24 27" stroke="transparent" stroke-width="1" fill="none"/><path d="M 18 27 L 24 27" stroke="rgb(38, 91, 238)" stroke-width="0.125" fill="none" stroke-dasharray=""/></g><circle data-type="_ELECTRIC" data-role="joint" data-id="SmZIHItfFWSNtxcoKoRE6" cx="18" cy="27" r="0.2" stroke-width="0.025" class="css-11isyqd" style="cursor: crosshair;"/><circle data-type="_ELECTRIC" data-role="joint" data-id="UIwpUzhMrSUOe4FPjfinA" cx="24" cy="27" r="0.2" stroke-width="0.025" class="css-11isyqd" style="cursor: crosshair;"/><g data-role="model-instance" data-id="6W8EoYJ_HXvI-mZHCbpOf" opacity="1"><image transform="" href="http://10.101.4.76:9000/global/static/entities/VDC/icons/000.svg" x="17" y="27" width="2" height="4"/>
+            <rect data-role="model-instance-frame" x="17" y="27" stroke-width="0.1" class="css-lt0azd"/><circle data-type="_ELECTRIC" data-role="pin" data-id="6W8EoYJ_HXvI-mZHCbpOf.0" cx="18" cy="27" r="0.2" stroke-width="0.075" class="css-xmwwrv" style="cursor: crosshair;"/><circle data-type="_ELECTRIC" data-role="pin" data-id="6W8EoYJ_HXvI-mZHCbpOf.1" cx="18" cy="31" r="0.2" stroke-width="0.075" class="css-7cnhvq" style="cursor: crosshair;"/></g><g data-role="model-instance" data-id="x2anKb-XGBqpAXFeTE0tR" opacity="1">
+              <image transform="" href="http://10.101.4.76:9000/global/static/entities/VDC/icons/000.svg" x="23" y="27" width="2" height="4"/>
+              <rect data-role="model-instance-frame" x="23" y="27" stroke-width="0.1" class="css-lt0azd"/>
+              <circle data-type="_ELECTRIC" data-role="pin" data-id="x2anKb-XGBqpAXFeTE0tR.0" cx="24" cy="27" r="0.2" stroke-width="0.075" class="css-xmwwrv" style="cursor: crosshair;"/>
+              <circle data-type="_ELECTRIC" data-role="pin" data-id="x2anKb-XGBqpAXFeTE0tR.1" cx="24" cy="31" r="0.2" stroke-width="0.075" class="css-7cnhvq" style="cursor: crosshair;"/>
+            </g>
+          </svg>
+        </svg>
+    <!-- <div class="b" title="hiiiiii" id="hhhh">222222</div> -->
+</div>
+    <script src="./index2.js"></script>
     <!-- <script src="./canvas.js"></script> -->
 </body>
 </html>

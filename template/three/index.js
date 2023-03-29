@@ -1,10 +1,10 @@
+
 const loader = new THREE.GLTFLoader()
 
 
 loader.load('http://localhost:3000/pao.gltf', function (gltf) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
-console.log(55, window.innerWidth)
   const renderer = new THREE.WebGLRenderer();
   renderer.setClearColor(0xcccccc, 1);
   renderer.setPixelRatio(window.devicePixelRatio);
@@ -42,7 +42,7 @@ console.log(55, window.innerWidth)
   const axesHelper = new THREE.AxesHelper( 15 );
   scene.add( axesHelper );
 
-  console.log(111, gltf)
+  // console.log(111, gltf)
   // gltf.scene.castShadow = true
   // console.log(222, gltf.scenes[0].getCenter(new THREE.Vector3()))
   var gltfCenter
@@ -61,12 +61,10 @@ console.log(55, window.innerWidth)
   };
 
   gltf.scene.traverse( function ( mesh ) {
-    console.log(333, mesh)
     if ( mesh.isMesh ) {
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       // gltfCenter = mesh.geometry.center() // keypoint: 有这个会两部分分离
-      console.log(222, mesh.geometry.center)
       // mesh.material.emissive =  mesh.material.color;
       // mesh.material.emissiveMap = mesh.material.map ;
       mesh.material = new THREE.MeshPhongMaterial( { color: mesh.material.color } );
@@ -77,12 +75,22 @@ console.log(55, window.innerWidth)
   // var pmremGenerator = new THREE.PMREMGenerator(renderer);
   //         pmremGenerator.compileEquirectangularShader();
 
-
+  // let clock = new THREE.Clock();
+  console.log(555, gltf)
   const scaleNum = 20
   gltf.scene.scale.set(scaleNum, scaleNum, scaleNum)
+  const paoGun = gltf.scene.children[0].children[0]
   let center = getCenterPosition(gltf.scene)
   gltf.scene.position.set(-center.x, -center.y, -center.z)
   scene.add(gltf.scene)
+
+  
+  // const mixer = new THREE.AnimationMixer( gltf.scene );
+  // let animationClip = gltf.animations[0];
+  // const clipAction = mixer.clipAction( animationClip ).play();    
+  // animationClip = clipAction.getClip();
+
+ 
 
   // camera.position.z = 3;
   // camera.lookAt(0, 0, 3)
@@ -91,14 +99,29 @@ console.log(55, window.innerWidth)
   camera.lookAt(scene.position);
   document.body.appendChild( renderer.domElement );
 
+  let paoPos = getCenterPosition(paoGun)
+  const animatePos = {x:  - center.x, y:  - center.y, z:  - center.z}
+  console.log(777, animatePos)
+  const tween = new TWEEN.Tween(animatePos)
+    .to({x: paoPos.x+ center.x, y: paoPos.y+ center.y, z: paoPos.z+ center.z}, 3000)
+    .easing(TWEEN.Easing.Elastic.InOut)
+    .onUpdate(update)
+  function update() {
+    paoGun.position.set(animatePos.x, animatePos.y, animatePos.z)
+  }
+  tween.start()
 
   animate();
 
-  
-  function animate() {
+  function animate(time) {
     animateId = requestAnimationFrame(animate);
     controls.update();
     renderer.render(scene, camera);
+    tween.update(time)
+    // const delta = clock.getDelta()
+    // if (mixer && clipAction) {
+    //   mixer.update(delta)
+    // }
   }
   
 }, undefined, function (err) {

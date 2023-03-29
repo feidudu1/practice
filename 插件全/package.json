@@ -1,0 +1,39 @@
+{
+  "name": "@simarts-extension/sayhi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tsx",
+  "scripts": {
+    "dev": "pnpm run _wait-local-backend && graphql-codegen --config codegen.yml --watch -r dotenv-safe/config",
+    "_wait-local-backend": "dotenv cross-var wait-local-backend %VITE_ENDPOINT%",
+    "generate": "pnpm run _wait-local-backend && graphql-codegen --config codegen.yml -r dotenv-safe/config",
+    "_copy-dot-env": "[ ! -f .env ] && cp .env.example .env || echo \".env already exists.\"",
+    "postinstall": "pnpm run _copy-dot-env"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  "@simarts/core": "workspace:*",
+"framer-motion": "^6.4.2",
+"logdown": "^3.3.1",
+"merge": "^2.1.1"
+},
+"devDependencies": {
+"@typescript-eslint/eslint-plugin": "^5.33.0",
+"@typescript-eslint/parser": "^5.33.0",
+"config": "workspace:*",
+"cpy-cli": "^4.1.0",
+"cross-env": "^7.0.3",
+"cross-var": "^1.1.0",
+"dotenv-cli": "^5.1.0",
+"dotenv-safe": "^8.2.0",
+"eslint": "^8.21.0",
+"eslint-plugin-prettier": "^4.2.1",
+"eslint-plugin-react": "^7.30.1",
+"eslint-plugin-react-hooks": "^4.3.0",
+"typescript": "^4.7.4",
+"vite": "^3.0.9",
+"wait-local-backend": "workspace:*"
+}
+}

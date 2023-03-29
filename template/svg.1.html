@@ -1,40 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+<html>
+  <style>
+    div {
+      display: block;
+      width: 1px;
+      height:1px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: blue;
+      opacity: 0.5;
+    }
+    body {
+      width: 100px;
+      height: 80px;
+    }
+  </style>
 <body>
-  
-<svg width="926px" height="371px" viewBox="0 0 926 371" version="1.1" xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient x1="4.52295631%" y1="35.9630499%" x2="7.24747805%" y2="155.9340409%" id="linearGradient-1">
-      <stop stop-color="#7CEBFA" offset="0.0158361486%"></stop>
-      <stop stop-color="#007ACC" offset="100%"></stop>
-    </linearGradient>
-    <path
-      d="M562.015015,727.136681 C545.1881,681.460088 536,632.088214 536,580.570345 C536,529.428213 545.054565,480.400889 561.64806,435.004005 L616,435.004008 L616,727.136681 L562.015015,727.136681 Z M1358.35194,435.004005 C1374.94544,480.400889 1384,529.428213 1384,580.570345 C1384,632.088214 1374.8119,681.460088 1357.98498,727.136681 L1304,727.136681 L1304,435.004008 L1358.35196,435.004008 Z"
-      id="path-2"></path>
-    <filter x="-8.0%" y="-17.8%" width="116.0%" height="146.6%" filterUnits="objectBoundingBox" id="filter-3">
-      <feMorphology radius="2" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
-      <feOffset dx="0" dy="16" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
-      <feGaussianBlur stdDeviation="22" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.735686189 0" type="matrix"
-        in="shadowBlurOuter1"></feColorMatrix>
-    </filter>
-  </defs>
-  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g id="总体大盘1" transform="translate(-497.000000, -412.000000)">
-      <g id="形状结合">
-        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
-        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
-      </g>
-    </g>
-  </g>
-</svg>
 
+<!-- style="position: absolute;left: 0;top: 0;" -->
+          <!-- patternUnits="userSpaceOnUse" -->
+<!--  -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" 
+width="100" height="50"
+>
+   <rect x="0" y="0" width="120" height="50" stroke="grey" stroke-width="2" fill="none" />
+	<defs>
+		<pattern
+          width="60"
+          height="20"
+          viewBox="0 0 60 20"
+          id="inner"
+          patternUnits="userSpaceOnUse"
+        >
+          <line
+            x1="0"
+            y1="0"
+            x2="100"
+            y2="0"
+            stroke-width="1"
+            stroke="red"
+            stroke-dasharray="1,19"
+            transform="translate(0,0.5)"
+          />
+        </pattern>
+	</defs>
+	<rect x="0" y="0" width="20" height="20" fill="none" stroke="yellow" stroke-width="1" opacity="0.9" />
+	<rect x="0" y="0" width="120" height="50" fill="url(#inner)" stroke="none"/>
+  
+</svg> 
+<div></div>
 </body>
 </html>
